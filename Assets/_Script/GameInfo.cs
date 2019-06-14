@@ -26,5 +26,5 @@ public static class GameInfo
     public static readonly float VALID_ANGLE = 40f;
 
     // function mode
-    public static string FuntionMode = "Add";
+    public static EFunction FunctionMode = EFunction.Add;
 }

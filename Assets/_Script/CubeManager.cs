@@ -24,12 +24,12 @@ public class CubeManager : MonoBehaviour
         dm = GetComponent<DimensionManager>();
         cube_pos = Vector3.zero;
 
-        switch (GameInfo.FuntionMode)
+        switch (GameInfo.FunctionMode)
         {
-            case "test":
+            case EFunction.Test:
                 preview_cube = Instantiate(prefab_cube, Vector3.zero, transform.rotation, transform);
                 break;
-            case "Add":
+            case EFunction.Add:
                 preview_cube = Instantiate(prefab_cube, Vector3.zero, transform.rotation, transform);
                 break;
             default:
@@ -48,12 +48,12 @@ public class CubeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        switch (GameInfo.FuntionMode)
+        switch (GameInfo.FunctionMode)
         {
-            case "Test":
+            case EFunction.Test:
                 updateCubeStatus();
                 break;
-            case "Add":
+            case EFunction.Add:
                 updateCubeStatus();
 
                 if (Input.GetMouseButtonDown(0) && GameInfo.InVaildArea)

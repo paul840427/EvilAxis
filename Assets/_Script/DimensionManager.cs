@@ -134,15 +134,15 @@ public class DimensionManager : MonoBehaviour {
         pre_x2 = x2;
         pre_y2 = y2;
 
-        switch (GameInfo.FuntionMode)
+        switch (GameInfo.FunctionMode)
         {
-            case "Test":
+            case EFunction.Test:
                 if (Input.GetMouseButtonDown(0))
                 {
                     print(string.Format("x2:{0:F4}, y2:{1:F4}", Input.mousePosition.x / Screen.width, Input.mousePosition.y / Screen.height));
                 }
                 break;
-            case "Add":
+            case EFunction.Add:
                 print(string.Format("Instantiate cube: ({0:F4}, {1:F4}, {2:F4})", test_cube.position.x, test_cube.position.y, test_cube.position.z));
                 break;
             default:
