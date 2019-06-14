@@ -27,4 +27,6 @@ public static class GameInfo
 
     // function mode
     public static EFunction FunctionMode = EFunction.Add;
+
+    public static string ScreenCapturePath = "Assets/Image/";
 }
