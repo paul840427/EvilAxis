@@ -11,6 +11,7 @@ public class CubeManager : MonoBehaviour
     GameObject preview_cube;
     Vector3 cube_pos;
     DimensionManager dm;
+    ExcelManager em;
 
     // 避免重複生成物件
     bool[,,] cube_exist;
@@ -26,6 +27,7 @@ public class CubeManager : MonoBehaviour
     void Start()
     {
         dm = GetComponent<DimensionManager>();
+        em = GetComponent<ExcelManager>();
         cube_pos = Vector3.zero;
         cube_exist = new bool[10, 10, 10];
 
@@ -58,6 +60,8 @@ public class CubeManager : MonoBehaviour
                             cube_pos.x, cube_pos.y, cube_pos.z));
 
                         cube_exist[(int)coordinate.x, (int)coordinate.y, (int)coordinate.z] = true;
+
+                        em.saveData(coordinate, EFunction.Add);
                     }
                 }
 
@@ -83,6 +87,8 @@ public class CubeManager : MonoBehaviour
                         print(string.Format("Destroy cube:({0:F4}, {1:F4}, {2:F4}) @ ({3:F4}, {4:F4}, {5:F4})",
                                 coordinate.x, coordinate.y, coordinate.z,
                                 hit.transform.position.x, hit.transform.position.y, hit.transform.position.z));
+
+                        em.saveData(coordinate, EFunction.Del);
                     }
                 }
                

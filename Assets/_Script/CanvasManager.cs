@@ -14,6 +14,7 @@ public class CanvasManager : MonoBehaviour
     Vector3 rotation_value;
 
     string path1;
+    string path2;
 
     // Start is called before the first frame update
     void Start()
@@ -36,18 +37,36 @@ public class CanvasManager : MonoBehaviour
         {
             print(string.Format("FunctionMode: {0}", "Save"));
             string file_name = DateTime.Now.ToString("yyyy-MM-dd@H-mm-ss-ffff");
-            path1 = Path.Combine(GameInfo.ScreenCapturePath1, string.Format("{0}.png", file_name)); //存畚箕
+            path1 = Path.Combine(GameInfo.ScreenCapturePath, string.Format("{0}.png", file_name)); //存本機
+            path2 = Path.Combine(GameInfo.ScreenCapturePath2, string.Format("{0}.png", file_name));
 
-            ScreenCapture.CaptureScreenshot(path1);
+            try
+            {
+                ScreenCapture.CaptureScreenshot(path1);
+            }
+            catch (Exception e)
+            {
+                print(e.Message);
+            }
+
+            try
+            {
+                ScreenCapture.CaptureScreenshot(path2);
+            }
+            catch (Exception e)
+            {
+                print(e.Message);
+            }
 
         });
     }
     private void OnGUI()
     {
-        GUIStyle textstyle = new GUIStyle();
-        textstyle.fontSize = 20;
-        GUI.Label(new Rect(100, 1000, 200, 50), path1, textstyle);
+        GUI.color = Color.red;
+        GUI.skin.label.fontSize = 50;
+        GUILayout.Label(path1 + "\n" + path2);
     }
+
     // Update is called once per frame
     void Update()
     {

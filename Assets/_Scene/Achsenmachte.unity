@@ -1117,6 +1117,7 @@ GameObject:
   - component: {fileID: 2091741749}
   - component: {fileID: 2091741748}
   - component: {fileID: 2091741753}
+  - component: {fileID: 2091741754}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -1252,6 +1253,18 @@ MonoBehaviour:
   prefab_cube: {fileID: 1131863936317338, guid: c50838e833e8c9144bd8a919789fed25,
     type: 3}
   unity_cube: {fileID: 1033413329083126, guid: 04d822683fa49b042aa0347df619b49f, type: 3}
+--- !u!114 &2091741754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2091741747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dad4bddce2e4c2642bc488221d7ed151, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2120203383
 GameObject:
   m_ObjectHideFlags: 0

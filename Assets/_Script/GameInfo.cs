@@ -29,8 +29,8 @@ public static class GameInfo
     // function mode
     public static EFunction FunctionMode = EFunction.Add;
 
-    public static string ScreenCapturePath1 = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
-　
-
+    // 圖片儲存路徑
+    public static string ScreenCapturePath = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+    public static string ScreenCapturePath2 = string.Format(@"file://{0}", Environment.GetFolderPath(Environment.SpecialFolder.MyPictures));
 
 }
