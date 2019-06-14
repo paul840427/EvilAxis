@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -27,4 +28,9 @@ public static class GameInfo
 
     // function mode
     public static EFunction FunctionMode = EFunction.Add;
+
+    public static string ScreenCapturePath1 = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+　
+
+
 }
