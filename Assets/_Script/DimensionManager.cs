@@ -54,8 +54,6 @@ public class DimensionManager : MonoBehaviour {
     [SerializeField] bool YZ;
     #endregion
 
-    public Transform test_cube;
-
     // Use this for initialization
     void Start() {
         #region parameter
@@ -133,21 +131,6 @@ public class DimensionManager : MonoBehaviour {
         // 更新上一時刻的位置
         pre_x2 = x2;
         pre_y2 = y2;
-
-        switch (GameInfo.FunctionMode)
-        {
-            case EFunction.Test:
-                if (Input.GetMouseButtonDown(0))
-                {
-                    print(string.Format("x2:{0:F4}, y2:{1:F4}", Input.mousePosition.x / Screen.width, Input.mousePosition.y / Screen.height));
-                }
-                break;
-            case EFunction.Add:
-                print(string.Format("Instantiate cube: ({0:F4}, {1:F4}, {2:F4})", test_cube.position.x, test_cube.position.y, test_cube.position.z));
-                break;
-            default:
-                break;
-        }
     }
 
     private void FixedUpdate()
@@ -233,6 +216,12 @@ public class DimensionManager : MonoBehaviour {
     // 正射影長(純量)
     public float positiveProjectionLength(Vector2 axis, Vector2 mouse_pos) {
         return Vector2.Dot(axis, mouse_pos) / axis.magnitude;
+    }
+
+    // 正射影長(純量)
+    public float positiveProjectionLength(Vector3 axis, Vector3 cube_pos)
+    {
+        return Vector3.Dot(axis, cube_pos) / axis.magnitude;
     }
 
     // 正射影(向量) = 正射影長 * axis 的單位向量
@@ -343,5 +332,14 @@ public class DimensionManager : MonoBehaviour {
 
         return directions[min_index];
     }
-    
+
+    public Vector3 positionToCoordinate(Vector3 position)
+    {
+        float coord_x = positiveProjectionLength(x_axis3, position) + 5f;
+        float coord_y = positiveProjectionLength(y_axis3, position) + 5f;
+        float coord_z = positiveProjectionLength(z_axis3, position) + 5f;
+
+        return new Vector3(coord_x, coord_y, coord_z);
+    }
+
 }
