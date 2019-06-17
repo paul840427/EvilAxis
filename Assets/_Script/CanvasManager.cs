@@ -52,7 +52,8 @@ public class CanvasManager : MonoBehaviour
     {
         GUI.color = Color.red;
         GUI.skin.label.fontSize = 50;
-        GUILayout.Label(path);
+        string current_directory = System.Environment.CurrentDirectory;
+        GUILayout.Label(path + "\n" + current_directory);
     }
 
     // Update is called once per frame
