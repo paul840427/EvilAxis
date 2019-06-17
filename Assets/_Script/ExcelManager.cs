@@ -20,7 +20,6 @@ public class ExcelManager : MonoBehaviour
 
     public void saveData(Vector3 pos, EFunction type)
     {
-        //string path = Path.Combine(GameInfo.ApplicationPath, "StreamingAssets/data.csv");
         string path = Path.Combine(GameInfo.ApplicationPath, "StreamingAssets/data.csv");
 
         // 檢查檔案是否存在，不存在則建立
