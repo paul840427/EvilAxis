@@ -328,11 +328,31 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8585728466365474436, guid: 66b31c5ab0372b84c9b1baeef84de5fa,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8585728466365474436, guid: 66b31c5ab0372b84c9b1baeef84de5fa,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8585728466365474436, guid: 66b31c5ab0372b84c9b1baeef84de5fa,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8585728466365474439, guid: 66b31c5ab0372b84c9b1baeef84de5fa,
         type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1336520122}
+    - target: {fileID: 8585728466365474439, guid: 66b31c5ab0372b84c9b1baeef84de5fa,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5062268684499262968, guid: 66b31c5ab0372b84c9b1baeef84de5fa,
         type: 3}
       propertyPath: sphere
