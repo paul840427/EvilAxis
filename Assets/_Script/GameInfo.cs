@@ -30,5 +30,5 @@ public static class GameInfo
     public static EFunction FunctionMode = EFunction.Add;
 
     // 圖片儲存路徑
-    public static string ScreenCapturePath = Application.persistentDataPath;
+    public static string ApplicationPath = Application.dataPath;
 }
