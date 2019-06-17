@@ -36,7 +36,7 @@ public class CanvasManager : MonoBehaviour
         {
             print(string.Format("FunctionMode: {0}", "Save"));
             string file_name = DateTime.Now.ToString("yyyy-MM-dd@H-mm-ss-ffff");
-            path = Path.Combine(GameInfo.ScreenCapturePath, string.Format("{0}.png", file_name));
+            path = Path.Combine(GameInfo.ApplicationPath, string.Format("{0}.png", file_name));
 
             try
             {
@@ -52,7 +52,8 @@ public class CanvasManager : MonoBehaviour
     {
         GUI.color = Color.red;
         GUI.skin.label.fontSize = 50;
-        GUILayout.Label(path);
+        string current_directory = System.Environment.CurrentDirectory;
+        GUILayout.Label(path + "\n" + current_directory);
     }
 
     // Update is called once per frame
