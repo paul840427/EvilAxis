@@ -34,26 +34,20 @@ public class CanvasManager : MonoBehaviour
 
         save.onClick.AddListener(() =>
         {
-            print(string.Format("FunctionMode: {0}", "Save"));
             string file_name = DateTime.Now.ToString("yyyy-MM-dd@H-mm-ss-ffff");
-            path = Path.Combine(GameInfo.ApplicationPath, string.Format("{0}.png", file_name));
 
-            try
+            switch (GameInfo.Version)
             {
-                ScreenCapture.CaptureScreenshot(path);
-            }
-            catch (Exception e)
-            {
-                print(e.Message);
+                case EVersion.Local:
+                    path = Path.Combine(GameInfo.DataPath, string.Format("{0}.png", file_name));
+                    ScreenCapture.CaptureScreenshot(path);
+                    print(string.Format("Save file: {0}", path));
+                    break;
+                case EVersion.WebGL:
+                    //sd.saveClickProcess(coordinate, EFunction.Add);
+                    break;
             }
         });
-    }
-    private void OnGUI()
-    {
-        GUI.color = Color.red;
-        GUI.skin.label.fontSize = 50;
-        string current_directory = System.Environment.CurrentDirectory;
-        GUILayout.Label(path + "\n" + current_directory);
     }
 
     // Update is called once per frame

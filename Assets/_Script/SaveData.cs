@@ -1,26 +1,22 @@
 ﻿using System;
-using System.Data;
+using System.Collections;
+using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using UnityEngine;
 
-public class ExcelManager : MonoBehaviour
+public class SaveData : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+   
+    public void saveClickProcess(Vector3 pos, EFunction type)
     {
-        
-    }
+        // 檢查資料夾是否存在，不存在則建立
+        if (!Directory.Exists(GameInfo.DataPath))
+        {
+            //新增資料夾
+            Directory.CreateDirectory(GameInfo.DataPath);
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void saveData(Vector3 pos, EFunction type)
-    {
-        string path = Path.Combine(GameInfo.ApplicationPath, "StreamingAssets/data.csv");
+        string path = Path.Combine(GameInfo.DataPath, "data.csv");
 
         // 檢查檔案是否存在，不存在則建立
         StreamWriter writer;
@@ -37,7 +33,6 @@ public class ExcelManager : MonoBehaviour
         // 時間格式化
         string time = DateTime.Now.ToString("yyyy-MM-dd@H-mm-ss-ffff");
         string data = string.Format("{0}, {1:F2}, {2:F2}, {3:F2}, {4}", time, pos.x, pos.y, pos.z, type);
-        // JsonConvert.SerializeObject 將 record_data 轉換成json格式的字串
         writer.WriteLine(data);
         writer.Close();
         writer.Dispose();
