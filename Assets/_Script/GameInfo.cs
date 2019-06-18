@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public static class GameInfo
 {
+    public static EVersion Version = EVersion.Local;
+
     // 方塊移動邊界
     public static readonly float LEFT = 0.5102f;
     public static readonly float RIGHT = 0.8163f;
@@ -29,6 +32,6 @@ public static class GameInfo
     // function mode
     public static EFunction FunctionMode = EFunction.Add;
 
-    // 圖片儲存路徑
-    public static string ApplicationPath = "var/www/html/WebEvilAxis/";
+    // 數據儲存路徑(或許存本機端才會使用到，目前沒做版本間的切換)
+    public static string DataPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "EvilAxis");
 }
