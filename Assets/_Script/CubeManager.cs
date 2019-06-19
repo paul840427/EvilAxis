@@ -68,6 +68,9 @@ public class CubeManager : MonoBehaviour
                             case EVersion.WebGL:
                                 //sd.saveClickProcess(coordinate, EFunction.Add);
                                 break;
+                            case EVersion.Test:
+                                //sd.saveClickProcess(coordinate, EFunction.Add);
+                                break;
                         }
                     }
                 }

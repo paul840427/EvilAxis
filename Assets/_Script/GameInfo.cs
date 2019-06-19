@@ -6,7 +6,7 @@ using UnityEngine;
 
 public static class GameInfo
 {
-    public static EVersion Version = EVersion.Local;
+    public static EVersion Version = EVersion.Test;
 
     // 方塊移動邊界
     public static readonly float LEFT = 0.5102f;

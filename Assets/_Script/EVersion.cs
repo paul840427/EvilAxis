@@ -6,4 +6,5 @@ public enum EVersion
 {
     Local,
     WebGL,
+    Test,
 }

@@ -30,7 +30,6 @@ public class TakePhoto : MonoBehaviour
     }
 
 
-
     public IEnumerator screenShot()
     {
         yield return new WaitForEndOfFrame();
@@ -44,7 +43,7 @@ public class TakePhoto : MonoBehaviour
         form.AddField("guid", guid);
         string time = DateTime.Now.ToString("yyyy-MM-dd@H-mm-ss-ffff");
         form.AddField("time", time);
-        form.AddBinaryData("post", bytes);
+        form.AddBinaryData("file", bytes);
 
         StartCoroutine(Upload(url, form));
     }
@@ -75,7 +74,9 @@ public class TakePhoto : MonoBehaviour
             }
             else
             {
+                get_request = www.downloadHandler.text;
                 print("Form upload complete!");
+                print(get_request);
             }
         }
     }
