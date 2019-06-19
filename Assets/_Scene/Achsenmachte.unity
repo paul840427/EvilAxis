@@ -358,6 +358,11 @@ PrefabInstance:
       propertyPath: sphere
       value: 
       objectReference: {fileID: 2091741752}
+    - target: {fileID: 5062268684499262968, guid: 66b31c5ab0372b84c9b1baeef84de5fa,
+        type: 3}
+      propertyPath: sd
+      value: 
+      objectReference: {fileID: 2091741754}
     - target: {fileID: 8585728467230013413, guid: 66b31c5ab0372b84c9b1baeef84de5fa,
         type: 3}
       propertyPath: m_AnchoredPosition.x

@@ -12,6 +12,7 @@ public class CanvasManager : MonoBehaviour
     public Button save;
     public Transform sphere;
     Vector3 rotation_value;
+    public SaveData sd;
 
     string path;
 
@@ -45,6 +46,9 @@ public class CanvasManager : MonoBehaviour
                     break;
                 case EVersion.WebGL:
                     //sd.saveClickProcess(coordinate, EFunction.Add);
+                    break;
+                case EVersion.Test:
+                    StartCoroutine(sd.screenShot());
                     break;
             }
         });
