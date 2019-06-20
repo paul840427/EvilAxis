@@ -451,12 +451,12 @@ PrefabInstance:
     - target: {fileID: 8585728466365474438, guid: 66b31c5ab0372b84c9b1baeef84de5fa,
         type: 3}
       propertyPath: m_ReferenceResolution.x
-      value: 2200
+      value: 1920
       objectReference: {fileID: 0}
     - target: {fileID: 8585728466365474438, guid: 66b31c5ab0372b84c9b1baeef84de5fa,
         type: 3}
       propertyPath: m_ReferenceResolution.y
-      value: 1100
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 8585728466365474438, guid: 66b31c5ab0372b84c9b1baeef84de5fa,
         type: 3}
