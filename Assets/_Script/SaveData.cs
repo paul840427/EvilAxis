@@ -16,7 +16,7 @@ public class SaveData : MonoBehaviour
 
     private void Start()
     {
-        server = "http://140.122.91.200";
+        server = "localhost";
         guid = Guid.NewGuid().ToString();
         get_request = "";
     }
