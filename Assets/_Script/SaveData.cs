@@ -85,6 +85,37 @@ public class SaveData : MonoBehaviour
         print("end screenShot");
     }
 
+    public IEnumerator recordeClickProcess(Vector3 pos, EFunction type)
+    {
+        print("start recordeClickProcess");
+        url = string.Format("{0}/{1}", server, "ClickProcess.php");
+        form = new WWWForm();
+        form.AddField("guid", guid);
+        string time = DateTime.Now.ToString("yyyy-MM-dd@H-mm-ss-ffff");
+        form.AddField("time", time);
+        form.AddField("x", string.Format("{0}", (int)pos.x));
+        form.AddField("y", string.Format("{0}", (int)pos.y));
+        form.AddField("z", string.Format("{0}", (int)pos.z));
+        form.AddField("type", string.Format("{0}", type));
+
+        using (UnityWebRequest www = UnityWebRequest.Post(url, form))
+        {
+            yield return www.SendWebRequest();
+
+            if (www.isNetworkError || www.isHttpError)
+            {
+                print(www.error);
+            }
+            else
+            {
+                get_request = www.downloadHandler.text;
+                print("Form upload complete!");
+                print(get_request);
+            }
+        }
+        print("end recordeClickProcess");
+    }
+
     public IEnumerator screenShot()
     {
         print("start screenShot");

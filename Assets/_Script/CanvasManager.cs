@@ -27,25 +27,26 @@ public class CanvasManager : MonoBehaviour
             print(string.Format("FunctionMode: {0}", GameInfo.FunctionMode));            
         });
 
+
         del.onClick.AddListener(() =>
         {
             GameInfo.FunctionMode = EFunction.Del;
             print(string.Format("FunctionMode: {0}", GameInfo.FunctionMode));            
         });
 
+
         save.onClick.AddListener(() =>
         {
-            string file_name = DateTime.Now.ToString("yyyy-MM-dd@H-mm-ss-ffff");
-
             switch (GameInfo.Version)
             {
                 case EVersion.Local:
+                    string file_name = DateTime.Now.ToString("yyyy-MM-dd@H-mm-ss-ffff");
                     path = Path.Combine(GameInfo.DataPath, string.Format("{0}.png", file_name));
                     ScreenCapture.CaptureScreenshot(path);
                     print(string.Format("Save file: {0}", path));
                     break;
                 case EVersion.WebGL:
-                    //sd.saveClickProcess(coordinate, EFunction.Add);
+                    StartCoroutine(sd.uploadScreenShot());
                     break;
                 case EVersion.Test:
                     StartCoroutine(sd.uploadScreenShot());
