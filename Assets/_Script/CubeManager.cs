@@ -66,10 +66,10 @@ public class CubeManager : MonoBehaviour
                                 sd.saveClickProcess(coordinate, EFunction.Add);
                                 break;
                             case EVersion.WebGL:
-                                //sd.saveClickProcess(coordinate, EFunction.Add);
+                                StartCoroutine(sd.recordeClickProcess(coordinate, EFunction.Add));
                                 break;
                             case EVersion.Test:
-                                //sd.saveClickProcess(coordinate, EFunction.Add);
+                                StartCoroutine(sd.recordeClickProcess(coordinate, EFunction.Add));                                
                                 break;
                         }
                     }
@@ -104,7 +104,10 @@ public class CubeManager : MonoBehaviour
                                 sd.saveClickProcess(coordinate, EFunction.Del);
                                 break;
                             case EVersion.WebGL:
-                                //sd.saveClickProcess(coordinate, EFunction.Add);
+                                StartCoroutine(sd.recordeClickProcess(coordinate, EFunction.Del));
+                                break;
+                            case EVersion.Test:
+                                StartCoroutine(sd.recordeClickProcess(coordinate, EFunction.Del));
                                 break;
                         }
                     }
