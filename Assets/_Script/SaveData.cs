@@ -29,6 +29,11 @@ public class SaveData : MonoBehaviour
             {
                 StartCoroutine(screenShot());
             }
+
+            if (Input.GetKeyDown(KeyCode.U))
+            {
+                StartCoroutine(uploadScreenShot());
+            }
         }
     }
 
@@ -57,7 +62,7 @@ public class SaveData : MonoBehaviour
         }
 
         // 時間格式化
-        string time = DateTime.Now.ToString("yyyy-MM-dd@H-mm-ss-ffff");
+        string time = DateTime.Now.ToString("yyyy-MM-dd@HH-mm-ss-ffff");
         string data = string.Format("{0}, {1:F2}, {2:F2}, {3:F2}, {4}", time, pos.x, pos.y, pos.z, type);
         writer.WriteLine(data);
         writer.Close();
@@ -66,6 +71,20 @@ public class SaveData : MonoBehaviour
     #endregion
 
     #region webGL version
+    public IEnumerator uploadScreenShot()
+    {
+        print("start uploadScreenShot");
+        yield return new WaitForEndOfFrame();
+        // Capture Screenshot
+        Texture2D texture = ScreenCapture.CaptureScreenshotAsTexture();
+        // texture to bytes
+        byte[] bytes = texture.EncodeToPNG();
+
+        // upload image
+        yield return StartCoroutine(uploadImage(bytes));
+        print("end screenShot");
+    }
+
     public IEnumerator screenShot()
     {
         print("start screenShot");
