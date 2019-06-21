@@ -48,7 +48,7 @@ public class CanvasManager : MonoBehaviour
                     //sd.saveClickProcess(coordinate, EFunction.Add);
                     break;
                 case EVersion.Test:
-                    StartCoroutine(sd.screenShot());
+                    StartCoroutine(sd.uploadScreenShot());
                     break;
             }
         });
