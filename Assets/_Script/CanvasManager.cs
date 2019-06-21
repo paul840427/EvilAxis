@@ -10,6 +10,7 @@ public class CanvasManager : MonoBehaviour
     public Button add;
     public Button del;
     public Button save;
+    public Button init;
     public Transform sphere;
     Vector3 rotation_value;
     public SaveData sd;
@@ -52,6 +53,13 @@ public class CanvasManager : MonoBehaviour
                     StartCoroutine(sd.uploadScreenShot());
                     break;
             }
+        });
+
+        init.onClick.AddListener(() =>
+        {
+            print("Initialize rotation angle.");
+            sphere.rotation = Quaternion.identity;
+
         });
     }
 
