@@ -15,6 +15,10 @@ public class CanvasManager : MonoBehaviour
     Vector3 rotation_value;
     public SaveData sd;
 
+    public Slider x_slider;
+    public Slider y_slider;
+    public Slider z_slider;
+
     string path;
 
     // Start is called before the first frame update
@@ -57,9 +61,11 @@ public class CanvasManager : MonoBehaviour
 
         init.onClick.AddListener(() =>
         {
-            print("Initialize rotation angle.");
+            print("Initialize rotation angle.");            
+            x_slider.value = 0f;
+            y_slider.value = 0f;
+            z_slider.value = 0f;
             sphere.rotation = Quaternion.identity;
-
         });
     }
 
